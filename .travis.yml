@@ -6,5 +6,3 @@ deploy:
   secret_access_key:
     secure: WyNiNYkAKToPP0wvyLfAeNnfr9XL6LVSSpnRZlBlzF33EizZtKO705vz1q4QGVOsuO2r+353gdwY7FUaJEB5fpnWlwivaP7o4o7dYGFBGXbQQCXTyKGcUPgN6asFnKRcx/KZ66HLVQiUTZytUzwHwRtX+opr1p1F2ngxcH8FX6g=
   bucket: maciek-ban-proj
-  on:
-    repo: siwydb/psoirWorker
