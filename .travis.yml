@@ -2,6 +2,6 @@ language: java
 script: mvn clean install
 deploy:
   provider: s3
-  access_key_id: AKIAIEXIN653F2XWWL7Q
+  access_key_id: AKIAJWAMQO4SWI3ITIDQ
   secret_access_key: DSoYrTc51Gu2qJTV4XC+danYpoD4ivU0U3QYMBezpJJl2UkNjS1XsPsR6C0sGXOO0dzjNtzgnoaHk94xX73lqJeGqd/YrLKBSU+jTWfJf1xXHBBQ8UdST75ZtrD8JGKzF2tWqLya/aw3dbpY0977v64DruIS9kW5Zsh1VnZu7aY=
   bucket: maciek-ban-projekt
