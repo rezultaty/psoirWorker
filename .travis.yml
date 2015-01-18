@@ -3,5 +3,6 @@ script: mvn clean install
 deploy:
   provider: s3
   access_key_id: AKIAJWAMQO4SWI3ITIDQ
-  secret_access_key: tHobz7K52Rw8V7+zD0HZoM9SbgoaD4gEruKzVOgiK+0tObrXx9c7yGfvLpioOOt1ZeP83Bw3WJYSc/SA6uLAv41P6uhPfG4HXRUOL7rLBMmzi76MRS8f2HCuAGxB9BS0qpxFgPRbW8WZ5+1hD2WJfVLNMHJ4C2yUYShMU8uxz3s=
+  secret_access_key: 
+    secure: tHobz7K52Rw8V7+zD0HZoM9SbgoaD4gEruKzVOgiK+0tObrXx9c7yGfvLpioOOt1ZeP83Bw3WJYSc/SA6uLAv41P6uhPfG4HXRUOL7rLBMmzi76MRS8f2HCuAGxB9BS0qpxFgPRbW8WZ5+1hD2WJfVLNMHJ4C2yUYShMU8uxz3s=
   bucket: maciek-ban-proj
