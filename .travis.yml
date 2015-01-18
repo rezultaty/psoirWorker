@@ -2,9 +2,9 @@ language: java
 script: mvn clean install
 deploy:
   provider: s3
-  access_key_id: AKIAIED7VDGKPQL4CCHA
+  access_key_id: AKIAJWAMQO4SWI3ITIDQ
   secret_access_key:
-    secure: kBKq4f/qRFmCg1uoHn6thMDW55+uUuHxZd0+bYgouHgnP8apDyoYFFDZOS+rUROtin/+207BFiyQ3K0HSmq+BmQc/UxRReDa6bB96LYw2v+umbAJo1SWqqo4LkdYgnPJ5LFgLwVZiTpIHzUNBNsvT1T/5WZJvd8+2S5YfwUxym8=
+    secure: WyNiNYkAKToPP0wvyLfAeNnfr9XL6LVSSpnRZlBlzF33EizZtKO705vz1q4QGVOsuO2r+353gdwY7FUaJEB5fpnWlwivaP7o4o7dYGFBGXbQQCXTyKGcUPgN6asFnKRcx/KZ66HLVQiUTZytUzwHwRtX+opr1p1F2ngxcH8FX6g=
   bucket: maciek-ban-proj
   on:
     repo: siwydb/psoirWorker
