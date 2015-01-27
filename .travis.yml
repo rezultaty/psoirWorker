@@ -4,9 +4,15 @@ deploy:
   provider: s3
   access_key_id: AKIAJWAMQO4SWI3ITIDQ
   secret_access_key:
+<<<<<<< HEAD
     secure: BAiPQSJWKiIzKvhvjCDC7L/6txAzIE6pi27g4PW6u+OHKtmWWhKA4TOnkrREYXQwtptvBVuQilzV4lmOPvx8b9sAdFKAFNKNwTjl4YhOZtn4yEy+BuDJC3zEH1kuex1Nk6kZjK+Svx2UTT95vRT2UtcYr1f0Ajc2vn2KxH4JR4w=
   bucket: maciek-ban-proj
   upload-dir: app
   acl: bucket_owner_full_control
   on:
     repo: siwydb/psoirWorker
+=======
+    secure: tHobz7K52Rw8V7+zD0HZoM9SbgoaD4gEruKzVOgiK+0tObrXx9c7yGfvLpioOOt1ZeP83Bw3WJYSc/SA6uLAv41P6uhPfG4HXRUOL7rLBMmzi76MRS8f2HCuAGxB9BS0qpxFgPRbW8WZ5+1hD2WJfVLNMHJ4C2yUYShMU8uxz3s=
+  bucket: maciek-ban-proj
+  detect_encoding: true
+>>>>>>> 97eb2598063c4b0f620d4728c5471df657507e69
