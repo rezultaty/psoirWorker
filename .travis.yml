@@ -4,6 +4,6 @@ deploy:
   provider: s3
   access_key_id: AKIAJWAMQO4SWI3ITIDQ
   secret_access_key:
-    secure: R8smww4oP55QmsPVrRCIvAWTCayr4gqgtSla3doMiJLNgm5i5B7I47QovEUK5QmqK7Xsz9YVGIQnjiAlKDguUzYkUa6MXbajRF2ldxPUWxZORk7mdr/Pv7fwT3KOxhekM6rK6gSU5k85EQ5I9VhV8FQlETlzPjkuGIczSr65xsg=
+    secure: tHobz7K52Rw8V7+zD0HZoM9SbgoaD4gEruKzVOgiK+0tObrXx9c7yGfvLpioOOt1ZeP83Bw3WJYSc/SA6uLAv41P6uhPfG4HXRUOL7rLBMmzi76MRS8f2HCuAGxB9BS0qpxFgPRbW8WZ5+1hD2WJfVLNMHJ4C2yUYShMU8uxz3s=
   bucket: maciek-ban-proj
   detect_encoding: true
