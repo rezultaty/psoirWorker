@@ -6,3 +6,4 @@ deploy:
   secret_access_key:
     secure: R8smww4oP55QmsPVrRCIvAWTCayr4gqgtSla3doMiJLNgm5i5B7I47QovEUK5QmqK7Xsz9YVGIQnjiAlKDguUzYkUa6MXbajRF2ldxPUWxZORk7mdr/Pv7fwT3KOxhekM6rK6gSU5k85EQ5I9VhV8FQlETlzPjkuGIczSr65xsg=
   bucket: maciek-ban-proj
+  detect_encoding: true
