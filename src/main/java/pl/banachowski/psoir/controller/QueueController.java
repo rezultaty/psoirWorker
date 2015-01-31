@@ -33,7 +33,7 @@ public class QueueController {
 	        try{
 	            Properties properties = new Properties();
 	            properties.put("accessKey", "AKIAJWAMQO4SWI3ITIDQ");
-	            properties.put("secretKey", "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");
+	            properties.put("secretKey", "BAiPQSJWKiIzKvhvjCDC7L/6txAzIE6pi27g4PW6u+OHKtmWWhKA4TOnkrREYXQwtptvBVuQilzV4lmOPvx8b9sAdFKAFNKNwTjl4YhOZtn4yEy+BuDJC3zEH1kuex1Nk6kZjK+Svx2UTT95vRT2UtcYr1f0Ajc2vn2KxH4JR4w=");
 	            this.credentials = new   BasicAWSCredentials(properties.getProperty("accessKey"),
 	                                                         properties.getProperty("secretKey"));
 	            this.simpleQueue = "banachowski_projekt";
