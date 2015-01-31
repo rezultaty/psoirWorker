@@ -10,12 +10,6 @@ import javax.imageio.ImageIO;
 
 import org.imgscalr.Scalr;
 
-/**
- * Created by IntelliJ IDEA.
- * Date: 3/19/13
- * Time: 12:32 PM
- * To change this template use File | Settings | File Templates.
- */
 public class PhotoProcessor {
 
     public static void  generateImage(InputStream inputImageStream,OutputStream outputStream, int scalabity){

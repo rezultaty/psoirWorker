@@ -34,8 +34,8 @@ public class ImageProcessorController {
 
 	private static final String UPLOADS = "uploads";
 	private static final String RESULT = "procesingDone/";
-	private static final String ACCESS_KEY = "AKIAIEXIN653F2XWWL7Q";
-	private static final String SECRET_KEY = "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";
+	private static final String ACCESS_KEY = "AKIAJWAMQO4SWI3ITIDQ";
+	private static final String SECRET_KEY = "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";
 	private static final String BUCKET_NAME = "maciek-ban-projekt";
 
 	@Autowired

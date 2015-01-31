@@ -32,8 +32,8 @@ public class QueueController {
 	    private   QueueController(){
 	        try{
 	            Properties properties = new Properties();
-	            properties.put("accessKey", "AKIAIEXIN653F2XWWL7Q");
-	            properties.put("secretKey", "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");
+	            properties.put("accessKey", "AKIAJWAMQO4SWI3ITIDQ");
+	            properties.put("secretKey", "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");
 	            this.credentials = new   BasicAWSCredentials(properties.getProperty("accessKey"),
 	                                                         properties.getProperty("secretKey"));
 	            this.simpleQueue = "banachowski_projekt";
