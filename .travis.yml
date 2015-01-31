@@ -7,5 +7,5 @@ deploy:
     secure: BAiPQSJWKiIzKvhvjCDC7L/6txAzIE6pi27g4PW6u+OHKtmWWhKA4TOnkrREYXQwtptvBVuQilzV4lmOPvx8b9sAdFKAFNKNwTjl4YhOZtn4yEy+BuDJC3zEH1kuex1Nk6kZjK+Svx2UTT95vRT2UtcYr1f0Ajc2vn2KxH4JR4w=
   bucket: maciek-ban-proj
   upload-dir: app
-  acl: bucket_owner_full_control
+  acl: public_read
 
