@@ -5,12 +5,14 @@ import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSClient;
 import com.amazonaws.services.sqs.model.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Properties;
 
-@Controller
+@Component
 public class QueueController {
     private BasicAWSCredentials credentials;
     private AmazonSQS sqs;
@@ -18,17 +20,18 @@ public class QueueController {
     private String ACCESS_KEY;
     @Value("${sec.secretKey}")
     private String SECRET_KEY;
-    @Value("${sec.queueName}")
-    private String QUEUE_NAME;
+    //    @Value("${sec.queueName}")
+    private String QUEUE_NAME="mb_sqs";
 
-    private static volatile QueueController awssqsUtil = new QueueController();
+    //private static volatile QueueController awssqsUtil = new QueueController();
 
     /**
      * instantiates a AmazonSQSClient http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/sqs/AmazonSQSClient.html
      * Currently using  BasicAWSCredentials to pass on the credentials.
      * For SQS you need to set your regions endpoint for sqs.
      */
-    private QueueController() {
+    @PostConstruct
+    public void qQueueController() {
         try {
             Properties properties = new Properties();
             properties.put("accessKey", ACCESS_KEY);
@@ -57,16 +60,16 @@ public class QueueController {
         }
     }
 
-    public static QueueController getInstance() {
-        return awssqsUtil;
-    }
+//    public static QueueController getInstance() {
+//        return awssqsUtil;
+//    }
 
     public AmazonSQS getAWSSQSClient() {
-        return awssqsUtil.sqs;
+        return sqs;
     }
 
     public String getQueueName() {
-        return awssqsUtil.QUEUE_NAME;
+        return QUEUE_NAME;
     }
 
     /**
@@ -87,6 +90,7 @@ public class QueueController {
      * @return
      */
     public String getQueueUrl(String queueName) {
+        queueName = "mb_sqs";
         System.out.println(queueName);
         GetQueueUrlRequest getQueueUrlRequest = new GetQueueUrlRequest(queueName);
         System.out.println(getQueueUrlRequest);
