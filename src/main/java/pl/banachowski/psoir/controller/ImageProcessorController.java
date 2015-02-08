@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 
 import org.imgscalr.Scalr;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,9 +35,12 @@ public class ImageProcessorController {
 
 	private static final String UPLOADS = "uploads";
 	private static final String RESULT = "procesingDone/";
-	private static final String ACCESS_KEY = "AKIAJWAMQO4SWI3ITIDQ";
-	private static final String SECRET_KEY = "BAiPQSJWKiIzKvhvjCDC7L/6txAzIE6pi27g4PW6u+OHKtmWWhKA4TOnkrREYXQwtptvBVuQilzV4lmOPvx8b9sAdFKAFNKNwTjl4YhOZtn4yEy+BuDJC3zEH1kuex1Nk6kZjK+Svx2UTT95vRT2UtcYr1f0Ajc2vn2KxH4JR4w=";
-	private static final String BUCKET_NAME = "maciek-ban-projekt";
+    @Value( "${sec.accessKey}" )
+    private String ACCESS_KEY;
+    @Value( "${sec.secretKey}" )
+    private String SECRET_KEY;
+    @Value( "${sec.bucketName}" )
+    private String BUCKET_NAME;
 
 	@Autowired
 	private QueueController queueController;
@@ -56,16 +60,6 @@ public class ImageProcessorController {
 		return "Working";
 	}
 
-	@RequestMapping("/addFilterToQueue")
-	public String addPhotoToQueue(@RequestParam String size) {
-		SendMessageResult messageResult = queueController.sendMessageToQueue(
-				queueUrl, size);
-		if (messageResult.getMessageId() != null) {
-			return "DONE";
-		} else {
-			return "FAIL";
-		}
-	}
 
 	@RequestMapping("/generate")
 	public String processImages() throws IOException {
