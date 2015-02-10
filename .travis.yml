@@ -6,6 +6,7 @@ deploy:
   secret_access_key:
     secure: aoE2d/gr4DAqh/aZ1QAhlv7+MvppoChd5J0fUSC2aYenDIp46YHgbZJ++Gc1EunZsEjtgeb18/9nztnuUbUExXO+bFMpmecu3iF/AYyYiGDnqgSg4zRPn6bXENjIypRI+mf9L4Ms8hTna8NofMPq7IhWxv31h+dXiYQNNOcOcV0=
   bucket: maciek-ban-proj
+  skip_cleanup: true
   upload-dir: app
   acl: public_read
   on:
