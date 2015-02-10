@@ -29,7 +29,7 @@ public class QueueController {
      * instantiates a AmazonSQSClient http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/sqs/AmazonSQSClient.html
      * Currently using  BasicAWSCredentials to pass on the credentials.
      * For SQS you need to set your regions endpoint for sqs.
-     */
+     */ijminmnihjmim
     @PostConstruct
     public void qQueueController() {
         System.out.println("Sth: "+ACCESS_KEY);
