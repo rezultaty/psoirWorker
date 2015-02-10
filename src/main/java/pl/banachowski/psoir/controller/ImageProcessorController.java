@@ -108,9 +108,9 @@ public class ImageProcessorController {
 					ImageIO.write(buffImg, "jpg", os);
 					InputStream bis = new ByteArrayInputStream(os.toByteArray());
 					// byte[] imageBytes = ((DataBufferByte)
-					// buffImg.getData().getDataBuffer()).getData();
-					// ByteArrayInputStream bis = new
-					// ByteArrayInputStream(imageBytes);
+                    // buffImg.getData().getDataBuffer()).getData();
+                    // ByteArrayInputStream bis = new
+                    // ByteArrayInputStream(imageBytes);
 					ObjectMetadata objectMetadata = object.getObjectMetadata();
 					objectMetadata.setContentLength(os.size());
 					

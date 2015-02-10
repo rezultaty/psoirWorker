@@ -32,6 +32,7 @@ public class QueueController {
      */
     @PostConstruct
     public void qQueueController() {
+        System.out.println("Sth: "+ACCESS_KEY);
         try {
             Properties properties = new Properties();
             properties.put("accessKey", ACCESS_KEY);
