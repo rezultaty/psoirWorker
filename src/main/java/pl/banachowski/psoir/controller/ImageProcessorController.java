@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -29,6 +30,7 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.amazonaws.services.sqs.model.SendMessageResult;
+import pl.banachowski.psoir.service.PsoirService;
 
 @RestController
 public class ImageProcessorController {
@@ -47,6 +49,9 @@ public class ImageProcessorController {
 
 	@Autowired
 	private FilterController filterController;
+
+    @Autowired
+    private PsoirService psoirService;
 
 	String queueUrl;
 
@@ -74,53 +79,41 @@ public class ImageProcessorController {
 
 		System.out.println("Filtr ");
 
-		//
+
 		List<Message> messages = queueController
 				.getMessagesFromQueue(this.queueUrl);
 
 		for (Message message : messages) {
 			System.out.println(message.getBody() + " ");
 		}
-		// List<String> fileToProcessNames = new
-		// ArrayList<String>(messages.size());
-		// for (Message message : messages) {
-		// fileToProcessNames.add(message.getBody());
-		// }
 		System.out.println("Lista plikow");
 		//
 
 		for (Message filterNameMessage : messages) {
 			for (S3ObjectSummary objectSummary : objectSummaries) {
 				try {
-					// S3Object object = s3Client.getObject(new
-					// GetObjectRequest(
-					// BUCKET_NAME, fileToProcessPathInMessage.getBody()));
-					System.out.println(objectSummary.getKey()
-							+ objectSummary.getStorageClass());
 					S3Object object = s3Client.getObject(new GetObjectRequest(
-							BUCKET_NAME, objectSummary.getKey()));
+							BUCKET_NAME, filterNameMessage.getBody()));
 					InputStream is = object.getObjectContent();
 
 					BufferedImage buffImg = ImageIO.read(is);
-					buffImg = filterController.scale(buffImg,
-							Integer.valueOf(filterNameMessage.getBody()));
+					buffImg = filterController.scale(buffImg);
 					ByteArrayOutputStream os = new ByteArrayOutputStream();
 					ImageIO.write(buffImg, "jpg", os);
 					InputStream bis = new ByteArrayInputStream(os.toByteArray());
-					// byte[] imageBytes = ((DataBufferByte)
-                    // buffImg.getData().getDataBuffer()).getData();
-                    // ByteArrayInputStream bis = new
-                    // ByteArrayInputStream(imageBytes);
+
 					ObjectMetadata objectMetadata = object.getObjectMetadata();
 					objectMetadata.setContentLength(os.size());
 					
 					String key = object.getKey();
 					s3Client.putObject(
 							BUCKET_NAME,
-							RESULT + key.substring(0, key.lastIndexOf('.')) + "_"+filterNameMessage.getBody()+".jpg", bis, objectMetadata);
-					System.out.println(object.getKey());
+							RESULT + key, bis, objectMetadata);
+
+                    psoirService.saveLog("Pomyslnie zakończono przetwarzanie", new Date());
 				} catch (Exception e) {
 					e.printStackTrace();
+                    psoirService.saveLog("Blad przetwarzania", new Date());
 				}
 			}
 			queueController.deleteMessageFromQueue(queueUrl, filterNameMessage);
